@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#devise gem for user authentication, password changing and emailing on signup
+gem 'devise'
 #for bootstrap gem
 gem 'bootstrap-sass', '~> 3.3.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
