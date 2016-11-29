@@ -3,10 +3,14 @@ class PagesController < ApplicationController
   
   #back end code for pages/index
   def index
+    
+    
+    
   end
   	#back end code for pages/home
   def home
     @posts = Post.all
+    @newPost = Post.new
   end
 #back end code for pages/profile
   def profile
@@ -24,5 +28,19 @@ class PagesController < ApplicationController
 #back end code for pages/explore
   def explore
     @posts = Post.all
+  end
+  
+  helper_method :resource_name, :resource, :devise_mapping
+
+  def resource_name
+    :user
+  end
+ 
+  def resource
+    @resource ||= User.new
+  end
+ 
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
   end
 end

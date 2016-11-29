@@ -11,9 +11,9 @@ class PostsController < ApplicationController
         @post.user_id = current_user.id
         respond_to do |f|
             if(@post.save)#logic for if post is saved successfully and "redirect"
-                f.html { redirect_to "", notice: "Post Created!" }
+                f.html { redirect_to "/home", notice: "" }
             else
-                f.html { redirect_to "", notice: "Error: Post not saved!" }
+                f.html { redirect_to "/home", notice: "Error: Post not saved!" }
             end    
         end
     end
