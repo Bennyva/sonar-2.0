@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
-
+  
   devise_for :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships, only: [:create, :destroy]
   resources :posts
-		#define root url
+  # Define Root URL
   root 'pages#index'
-  #define routes for pages
-  get '/home' => 'pages#home' #overide default routes
+  
+  # Define Routes for Pages
+  get '/home' => 'pages#home' # override default routes.
   get '/user/:id' => 'pages#profile'
   get '/explore' => 'pages#explore'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
